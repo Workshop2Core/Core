@@ -6,7 +6,7 @@ import com.javatrainee.batch27.entity.User;
 
 public interface UserService {
 	
-	//path : workshop2/user
+	//path : workshop2/User
 	public List<User> findAll();											//-->getall
 	public User findById(long idUser);										//-->findbyid/{id}
 	public User findByUsernameAndPassword(String username, String password);//-->findbyusernameandpassword/{username/{password}

@@ -17,7 +17,7 @@ import com.javatrainee.batch27.entity.User;
 import com.javatrainee.batch27.service.UserService;
 
 @RestController
-@RequestMapping("workshop2/user")
+@RequestMapping("workshop2/User")
 public class UserController {
 	@Autowired
 	private UserService userService;
