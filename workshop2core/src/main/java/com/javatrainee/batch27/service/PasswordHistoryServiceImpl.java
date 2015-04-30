@@ -25,19 +25,6 @@ public class PasswordHistoryServiceImpl implements PasswordHistoryService {
 		passwordHistoryRepo.save(passwordHistory);
 	}
 
-	@Override
-	public void update(long idPassword, PasswordHistory passwordHistory) {
-		// TODO Auto-generated method stub
-		PasswordHistory p = passwordHistoryRepo.findOne(idPassword);
-		passwordHistory.setIdpassword(idPassword);
-		passwordHistoryRepo.save(p);
-	}
-
-	@Override
-	public void delete(long idPassword) {
-		// TODO Auto-generated method stub
-		passwordHistoryRepo.delete(idPassword);
-	}
 
 	@Override
 	public PasswordHistory findById(long idPassword) {

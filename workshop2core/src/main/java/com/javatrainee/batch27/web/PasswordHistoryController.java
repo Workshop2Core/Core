@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.javatrainee.batch27.entity.PasswordHistory;
-import com.javatrainee.batch27.entity.User;
 import com.javatrainee.batch27.service.PasswordHistoryService;
 
 @RestController
@@ -39,23 +38,6 @@ public class PasswordHistoryController {
 		pwdHistoryService.insert(passwordHistory);
 		return new ResponseEntity<PasswordHistory>(HttpStatus.NO_CONTENT);
 	}
-	
-	@RequestMapping(value="/update/{id}",method=RequestMethod.POST)
-	public ResponseEntity<PasswordHistory> update(@PathVariable("id") long id,@RequestBody @Valid PasswordHistory passwordHistory){
-		PasswordHistory p = pwdHistoryService.findById(id);
-		p.setIdpassword(passwordHistory.getIdpassword());
-		p.setOldpwd(passwordHistory.getOldpwd());
-		p.setTimechange(passwordHistory.getTimechange());
-		p.setUser(passwordHistory.getUser());
-		pwdHistoryService.update(id, p);
-		
-		return new ResponseEntity<PasswordHistory>(HttpStatus.NO_CONTENT);
-	}
-	
-	@RequestMapping(value="/delete/{id}",method=RequestMethod.DELETE)
-	public ResponseEntity<User> delete(@PathVariable("id") long id){
-		pwdHistoryService.delete(id);
-		return new ResponseEntity<User>(HttpStatus.NO_CONTENT);
-	}
+
 	
 }

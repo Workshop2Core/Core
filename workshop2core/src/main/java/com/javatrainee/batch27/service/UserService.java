@@ -8,8 +8,8 @@ public interface UserService {
 	
 	//path : workshop2/User
 	public List<User> findAll();											//-->getall
-	public User findById(long idUser);										//-->findbyid/{id}
-	public User findByUsernameAndPassword(String username, String password);//-->findbyusernameandpassword/{username/{password}
+	public User findById(long idUser);										//-->findById/{id}
+	public User findByUsernameAndPassword(String username, String password);//-->findByUsernameAndPassword/{username/{password}
 	public void insert(User user);											//-->insert
 	public void update(long idUser, User user);								//-->update/{id}
 	public void delete(long idUser);										//-->delete/{id}

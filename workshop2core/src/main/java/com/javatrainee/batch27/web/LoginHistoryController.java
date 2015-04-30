@@ -21,7 +21,7 @@ public class LoginHistoryController {
 	@Autowired
 	private LoginHistoryService loginHistoryService;
 	
-	@RequestMapping(value="/findloginhistorybyid/{userid}",method=RequestMethod.GET)
+	@RequestMapping(value="/findLoginHistoryByIdUser/{userid}",method=RequestMethod.GET)
 	public ResponseEntity<LoginHistory> findLoginHistoryByIdUser(@PathVariable("userid") long userid) {
 		LoginHistory loginHistory = loginHistoryService.findLoginHistoryByIdUser(userid);	 
 	    return new ResponseEntity<LoginHistory>(loginHistory, HttpStatus.OK);
