@@ -1,6 +1,5 @@
 package com.javatrainee.batch27.service;
 
-import com.javatrainee.batch27.entity.LoginHistory;
 import com.javatrainee.batch27.entity.OrderHistory;
 
 public interface OrderHistoryService {

@@ -1,7 +1,5 @@
 package com.javatrainee.batch27.service;
 
-import org.springframework.stereotype.Service;
-
 import com.javatrainee.batch27.entity.LoginHistory;
 
 public interface LoginHistoryService {

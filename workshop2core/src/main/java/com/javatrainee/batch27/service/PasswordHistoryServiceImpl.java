@@ -3,7 +3,6 @@ package com.javatrainee.batch27.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.javatrainee.batch27.entity.LoginHistory;
 import com.javatrainee.batch27.entity.PasswordHistory;
 import com.javatrainee.batch27.repo.PasswordHistoryRepo;
 

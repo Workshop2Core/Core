@@ -4,7 +4,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.javatrainee.batch27.entity.OrderHistory;
-import com.javatrainee.batch27.entity.User;
 import com.javatrainee.batch27.repo.OrderHistoryRepo;
 
 @Service
