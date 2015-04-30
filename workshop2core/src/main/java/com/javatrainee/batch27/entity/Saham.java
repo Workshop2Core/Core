@@ -1,7 +1,11 @@
 package com.javatrainee.batch27.entity;
 
 import java.io.Serializable;
+
 import javax.persistence.*;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import java.math.BigDecimal;
 import java.util.List;
 
@@ -16,9 +20,14 @@ public class Saham implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
+	@SequenceGenerator(name="SAHAM_IDSAHAM_GENERATOR", sequenceName="SAHAM_SEQ")
+	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="SAHAM_IDSAHAM_GENERATOR")
 	private long idsaham;
 
 	private String deskripsi;
+
+	@Column(name="KODE_SAHAM")
+	private String kodeSaham;
 
 	private BigDecimal lastprice;
 
@@ -26,10 +35,12 @@ public class Saham implements Serializable {
 
 	//bi-directional many-to-one association to OrderHistory
 	@OneToMany(mappedBy="saham")
+	@JsonIgnore
 	private List<OrderHistory> orderHistories;
 
 	//bi-directional many-to-one association to TransaksiSaham
 	@OneToMany(mappedBy="saham")
+	@JsonIgnore
 	private List<TransaksiSaham> transaksiSahams;
 
 	public Saham() {
@@ -49,6 +60,14 @@ public class Saham implements Serializable {
 
 	public void setDeskripsi(String deskripsi) {
 		this.deskripsi = deskripsi;
+	}
+
+	public String getKodeSaham() {
+		return this.kodeSaham;
+	}
+
+	public void setKodeSaham(String kodeSaham) {
+		this.kodeSaham = kodeSaham;
 	}
 
 	public BigDecimal getLastprice() {

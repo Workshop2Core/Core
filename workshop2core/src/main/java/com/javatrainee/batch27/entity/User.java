@@ -1,7 +1,11 @@
 package com.javatrainee.batch27.entity;
 
 import java.io.Serializable;
+
 import javax.persistence.*;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import java.math.BigDecimal;
 import java.util.List;
 
@@ -17,6 +21,8 @@ public class User implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
+	@SequenceGenerator(name="USERS_IDUSER_GENERATOR", sequenceName="USERS_SEQ")
+	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="USERS_IDUSER_GENERATOR")
 	private long iduser;
 
 	private String password;
@@ -27,18 +33,22 @@ public class User implements Serializable {
 
 	//bi-directional many-to-one association to LoginHistory
 	@OneToMany(mappedBy="user")
+	@JsonIgnore
 	private List<LoginHistory> loginHistories;
 
 	//bi-directional many-to-one association to OrderHistory
 	@OneToMany(mappedBy="user")
+	@JsonIgnore
 	private List<OrderHistory> orderHistories;
 
 	//bi-directional many-to-one association to PasswordHistory
 	@OneToMany(mappedBy="user")
+	@JsonIgnore
 	private List<PasswordHistory> passwordHistories;
 
 	//bi-directional many-to-one association to TransaksiSaham
 	@OneToMany(mappedBy="user")
+	@JsonIgnore
 	private List<TransaksiSaham> transaksiSahams;
 
 	public User() {
