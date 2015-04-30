@@ -13,6 +13,12 @@ public class OrderHistoryServiceImpl implements OrderHistoryService {
 	private OrderHistoryRepo orderHistoryRepo;
 	
 	@Override
+	public List<OrderHistory> findAll() {
+		// TODO Auto-generated method stub
+		return orderHistoryRepo.findAll();
+	}
+
+	@Override
 	public OrderHistory findById(long idUser) {
 		// TODO Auto-generated method stub
 		return orderHistoryRepo.findOne(idUser);
