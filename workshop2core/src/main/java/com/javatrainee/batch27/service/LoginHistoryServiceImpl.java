@@ -25,14 +25,6 @@ public class LoginHistoryServiceImpl implements LoginHistoryService {
 	}
 
 	@Override
-	public void update(long idLogin, LoginHistory loginHistory) {
-		// TODO Auto-generated method stub
-		LoginHistory l = loginHistoryRepo.findOne(idLogin);
-		loginHistory.setIdlogin(idLogin);
-		loginHistoryRepo.save(l);
-	}
-
-	@Override
 	public void delete(long idLogin) {
 		// TODO Auto-generated method stub
 		loginHistoryRepo.delete(idLogin);
