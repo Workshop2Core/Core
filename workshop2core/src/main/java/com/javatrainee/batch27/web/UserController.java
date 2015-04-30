@@ -28,13 +28,13 @@ public class UserController {
 	    return new ResponseEntity<List<User>>(entity, HttpStatus.OK);
 	}
 	
-	@RequestMapping(value="/get/{id}",method=RequestMethod.GET)
+	@RequestMapping(value="/findbyid/{id}",method=RequestMethod.GET)
 	public ResponseEntity<User> findById(@PathVariable("id") long idUser) {
 		User user = userService.findById(idUser);	 
 	    return new ResponseEntity<User>(user, HttpStatus.OK);
 	}
 	
-	@RequestMapping(value="/login/{username}/{password}",method=RequestMethod.GET)
+	@RequestMapping(value="/findbyusernameandpassword/{username}/{password}",method=RequestMethod.GET)
 	public ResponseEntity<User> findByUsernameAndPassword(@PathVariable("username") String username,@PathVariable("password") String password) {
 		User user = userService.findByUsernameAndPassword(username, password);	 
 	    return new ResponseEntity<User>(user, HttpStatus.OK);
