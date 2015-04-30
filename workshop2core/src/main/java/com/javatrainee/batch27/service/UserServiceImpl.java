@@ -40,10 +40,11 @@ public class UserServiceImpl implements UserService{
 	@Override
 	public void update(long idUser, User user)
 	{
-		User u = userRepo.findOne(idUser);
-		user.setIduser(idUser);
-		
-		userRepo.save(u);
+		User userUpdate = userRepo.findOne(idUser);
+		userUpdate.setUsername(user.getUsername());
+		userUpdate.setPassword(user.getPassword());
+		userUpdate.setSaldo(user.getSaldo());
+		userRepo.save(userUpdate);
 	}
 	
 	@Override

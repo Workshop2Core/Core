@@ -47,14 +47,11 @@ public class UserController {
 	}
 	
 	@RequestMapping(value="/update/{id}",method=RequestMethod.POST)
-	public ResponseEntity<User> updateUser(@PathVariable("id") long idUser,@RequestBody @Valid User user){
-		User userUpdate = userService.findById(idUser);
-		userUpdate.setUsername(user.getUsername());
-		userUpdate.setPassword(user.getPassword());
-		userUpdate.setSaldo(user.getSaldo());
+	public ResponseEntity<User> updateUser(
+			@PathVariable("id") long idUser,
+			@RequestBody @Valid User user){
 		
-		userService.update(idUser, userUpdate);
-		
+		userService.update(idUser, user);		
 		return new ResponseEntity<User>(HttpStatus.NO_CONTENT);
 	}
 	
