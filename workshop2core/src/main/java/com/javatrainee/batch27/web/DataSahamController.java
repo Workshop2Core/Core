@@ -40,7 +40,7 @@ public class DataSahamController {
 		return new ResponseEntity<TransaksiSaham>(HttpStatus.NO_CONTENT);
 	}
 	
-	@RequestMapping(value="/update/{idDataSaham}",method=RequestMethod.POST)
+	@RequestMapping(value="/update/{idDataSaham}",method=RequestMethod.PUT)
 	public ResponseEntity<TransaksiSaham> updateTransaksiSaham(
 			@PathVariable("idDataSaham") long idDataSaham,
 			@RequestBody @Valid TransaksiSaham dataSaham){
