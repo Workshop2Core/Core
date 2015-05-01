@@ -32,4 +32,10 @@ public class PasswordHistoryServiceImpl implements PasswordHistoryService {
 		return passwordHistoryRepo.findOne(idPassword);
 	}
 
+	@Override
+	public PasswordHistory findPasswordByIduser(long idUser) {
+		// TODO Auto-generated method stub
+		return passwordHistoryRepo.findPasswordByIduser(idUser);
+	}
+
 }

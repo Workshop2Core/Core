@@ -33,6 +33,12 @@ public class PasswordHistoryController {
 	    return new ResponseEntity<PasswordHistory>(passwordHistory, HttpStatus.OK);
 	}
 	
+	@RequestMapping(value="/findByIdUser/{idUser}",method=RequestMethod.GET)
+	public ResponseEntity<PasswordHistory> findPasswordByIduser(@PathVariable("idUser") long idUser) {
+		PasswordHistory passwordHistory = pwdHistoryService.findPasswordByIduser(idUser);	 
+	    return new ResponseEntity<PasswordHistory>(passwordHistory, HttpStatus.OK);
+	}
+	
 	@RequestMapping(value="/insert",method=RequestMethod.POST)
 	public ResponseEntity<PasswordHistory> insert(@RequestBody @Valid PasswordHistory passwordHistory){
 		pwdHistoryService.insert(passwordHistory);
