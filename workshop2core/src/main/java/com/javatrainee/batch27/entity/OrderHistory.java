@@ -119,4 +119,12 @@ public class OrderHistory implements Serializable {
 		this.user = user;
 	}
 
+	@Override
+	public String toString() {
+		return "OrderHistory [idorder=" + idorder + ", dateorder=" + dateorder
+				+ ", idcounterpart=" + idcounterpart + ", jenistransaksi="
+				+ jenistransaksi + ", lot=" + lot + ", price=" + price
+				+ ", status=" + status + ", saham=" + saham + ", user=" + user
+				+ "]";
+	}
 }

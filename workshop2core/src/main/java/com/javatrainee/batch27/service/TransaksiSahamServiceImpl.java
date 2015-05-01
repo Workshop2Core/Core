@@ -44,4 +44,10 @@ public class TransaksiSahamServiceImpl implements TransaksiSahamService{
 		// TODO Auto-generated method stub
 		return transaksiSahamRepo.findDataSahamByUserId(userId);
 	}
+	
+	@Override
+	public TransaksiSaham findDataSahamByUserIdAndIdSaham(long userId, long sahamId)
+	{
+		return transaksiSahamRepo.findDataSahamByUserIdAndIdSaham(userId, sahamId);
+	}
 }

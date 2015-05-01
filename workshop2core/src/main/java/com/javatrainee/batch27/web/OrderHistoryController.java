@@ -1,5 +1,6 @@
 package com.javatrainee.batch27.web;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 import javax.validation.Valid;
@@ -29,12 +30,25 @@ public class OrderHistoryController {
 	    return new ResponseEntity<List<OrderHistory>>(orderHistory, HttpStatus.OK);
 	}
 	
-	@RequestMapping(value="/getOrderHistoryByOrderId/{orderId}",method=RequestMethod.GET)
+	@RequestMapping(value="/getOrderHistoryByStatus/{orderId}",method=RequestMethod.GET)
 	public ResponseEntity<OrderHistory> getOrderHistoryById(@PathVariable("orderId") long orderId) {
 		OrderHistory orderHistory = orderHistoryService.findOrderHistoryByOrderId(orderId);	 
 	    return new ResponseEntity<OrderHistory>(orderHistory, HttpStatus.OK);
 	}
 	
+	@RequestMapping(value="/listStatusOpen",method=RequestMethod.GET)
+	public ResponseEntity<List<OrderHistory>> listStatusOpen() {
+		List<OrderHistory> orderHistory = orderHistoryService.listStatusOpen();	 
+	    return new ResponseEntity<List<OrderHistory>>(orderHistory, HttpStatus.OK);
+	}
+
+	@RequestMapping(value="/findMatching/{price}/{idSaham}/{lot}",method=RequestMethod.GET)
+	public ResponseEntity<OrderHistory> findMatching(@PathVariable("price") BigDecimal price,
+			@PathVariable("idSaham") long idSaham, @PathVariable("lot") BigDecimal lot) {
+		OrderHistory orderHistory = orderHistoryService.findMatching(price, idSaham, lot);	 
+	    return new ResponseEntity<OrderHistory>(orderHistory, HttpStatus.OK);
+	}
+
 	@RequestMapping(value="/insert",method=RequestMethod.POST)
 	public ResponseEntity<OrderHistory> insertOrderHistory(@RequestBody @Valid OrderHistory orderHistory){
 		orderHistoryService.insert(orderHistory);

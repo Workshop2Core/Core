@@ -15,4 +15,8 @@ public interface TransaksiSahamRepo extends JpaRepository<TransaksiSaham, Long> 
 	 @Query(value = "SELECT a.* FROM transaksi_saham a "
 		 		+ "WHERE a.iduser=:userId" ,nativeQuery = true)
 		 List<TransaksiSaham> findDataSahamByUserId(@Param("userId") Long userId);
+	 
+	 @Query(value = "SELECT a.* FROM transaksi_saham a "
+		 		+ "WHERE a.iduser=:userId AND a.idsaham=:sahamId" ,nativeQuery = true)
+		 TransaksiSaham findDataSahamByUserIdAndIdSaham(@Param("userId") Long userId,@Param("sahamId") Long sahamId);
 }

@@ -47,4 +47,12 @@ public class DataSahamController {
 		dataSahamService.update(idDataSaham,dataSaham);
 		return new ResponseEntity<TransaksiSaham>(HttpStatus.NO_CONTENT);
 	}
+	
+
+	@RequestMapping(value="/findDataSahamByUserIdAndIdSaham/{userId}/{sahamId}",method=RequestMethod.GET)
+	public ResponseEntity<TransaksiSaham> findDataSahamByUserIdAndIdSaham(@PathVariable("userId") long userId,
+			@PathVariable("sahamId") long sahamId){
+		TransaksiSaham listDataSaham = dataSahamService.findDataSahamByUserIdAndIdSaham(userId,sahamId);		
+		return new ResponseEntity<TransaksiSaham>(listDataSaham, HttpStatus.OK);
+	}
 }
