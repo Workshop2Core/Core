@@ -24,18 +24,4 @@ public class PasswordHistoryServiceImpl implements PasswordHistoryService {
 		// TODO Auto-generated method stub
 		passwordHistoryRepo.save(passwordHistory);
 	}
-
-
-	@Override
-	public PasswordHistory findById(long idPassword) {
-		// TODO Auto-generated method stub
-		return passwordHistoryRepo.findOne(idPassword);
-	}
-
-	@Override
-	public PasswordHistory findPasswordByIduser(long idUser) {
-		// TODO Auto-generated method stub
-		return passwordHistoryRepo.findPasswordByIduser(idUser);
-	}
-
 }

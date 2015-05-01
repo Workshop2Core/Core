@@ -16,5 +16,4 @@ public interface PasswordHistoryRepo extends JpaRepository<PasswordHistory, Long
 				 @Param("userId") Long userId,
 				 @Param("password") String password);
 	 
-	 public PasswordHistory findPasswordByIduser(@Param("idUser") long idUser);
 }

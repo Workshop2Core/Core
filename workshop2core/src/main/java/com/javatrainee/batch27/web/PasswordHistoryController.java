@@ -26,19 +26,7 @@ public class PasswordHistoryController {
 		PasswordHistory passwordHistory = pwdHistoryService.findPasswordHistoryByIdUserAndPassword(idUser, password);	 
 	    return new ResponseEntity<PasswordHistory>(passwordHistory, HttpStatus.OK);
 	}
-	
-	@RequestMapping(value="/get/{idUser}",method=RequestMethod.GET)
-	public ResponseEntity<PasswordHistory> findById(@PathVariable("idUser") long idUser) {
-		PasswordHistory passwordHistory = pwdHistoryService.findById(idUser);	 
-	    return new ResponseEntity<PasswordHistory>(passwordHistory, HttpStatus.OK);
-	}
-	
-	@RequestMapping(value="/findByIdUser/{idUser}",method=RequestMethod.GET)
-	public ResponseEntity<PasswordHistory> findPasswordByIduser(@PathVariable("idUser") long idUser) {
-		PasswordHistory passwordHistory = pwdHistoryService.findPasswordByIduser(idUser);	 
-	    return new ResponseEntity<PasswordHistory>(passwordHistory, HttpStatus.OK);
-	}
-	
+
 	@RequestMapping(value="/insert",method=RequestMethod.POST)
 	public ResponseEntity<PasswordHistory> insert(@RequestBody @Valid PasswordHistory passwordHistory){
 		pwdHistoryService.insert(passwordHistory);
