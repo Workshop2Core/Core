@@ -1,5 +1,7 @@
 package com.javatrainee.batch27.web;
 
+import java.util.List;
+
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,7 +31,10 @@ public class LoginHistoryController {
 	
 	@RequestMapping(value="/delete/{userId}",method=RequestMethod.DELETE)
 	public ResponseEntity<LoginHistory> deleteLoginHistory(@PathVariable("userId") long userId){
-		loginHistoryService.delete(loginHistoryService.findLoginHistoryByIdUser(userId));
+		List<LoginHistory> listLoginHistory = loginHistoryService.findLoginHistoryByIdUser(userId);
+		for(LoginHistory loginHistory : listLoginHistory){
+			loginHistoryService.delete(loginHistory.getIdlogin());
+		}
 		return new ResponseEntity<LoginHistory>(HttpStatus.NO_CONTENT);
 	}
 	

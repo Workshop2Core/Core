@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.javatrainee.batch27.entity.FloorPojo;
 import com.javatrainee.batch27.entity.OrderHistory;
 import com.javatrainee.batch27.service.OrderHistoryService;
 
@@ -36,9 +37,15 @@ public class OrderHistoryController {
 	    return new ResponseEntity<OrderHistory>(orderHistory, HttpStatus.OK);
 	}
 	
-	@RequestMapping(value="/listStatusOpen",method=RequestMethod.GET)
+	@RequestMapping(value="/getAllDataFloorByIdSaham/{idSaham}",method=RequestMethod.GET)
+	public ResponseEntity<List<FloorPojo>> getAllDataFloorByIdSaham(@PathVariable("idSaham") long idSaham) {
+		List<FloorPojo> floorPojo = orderHistoryService.findAllDataFloor(idSaham);	 
+	    return new ResponseEntity<List<FloorPojo>>(floorPojo, HttpStatus.OK);
+	}
+	
+	@RequestMapping(value="/listStatusOpenBuy",method=RequestMethod.GET)
 	public ResponseEntity<List<OrderHistory>> listStatusOpen() {
-		List<OrderHistory> orderHistory = orderHistoryService.listStatusOpen();	 
+		List<OrderHistory> orderHistory = orderHistoryService.listStatusOpenBuy();	 
 	    return new ResponseEntity<List<OrderHistory>>(orderHistory, HttpStatus.OK);
 	}
 

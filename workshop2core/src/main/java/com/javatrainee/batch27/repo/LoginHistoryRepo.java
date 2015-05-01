@@ -1,5 +1,7 @@
 package com.javatrainee.batch27.repo;
 
+import java.util.List;
+
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
@@ -10,8 +12,8 @@ import com.javatrainee.batch27.entity.LoginHistory;
 @RepositoryRestResource (collectionResourceRel = "loginhistory", path="loginhistory")
 public interface LoginHistoryRepo extends JpaRepository<LoginHistory, Long> {
 	
-	 @Query(value = "SELECT a.idlogin FROM login_history a "
+	 @Query(value = "SELECT a.* FROM login_history a "
 	 		+ "WHERE a.iduser=:userId" ,nativeQuery = true)
-	 Long findLoginHistoryByIdUser(@Param("userId") Long userId);
+	 List<LoginHistory> findLoginHistoryByIdUser(@Param("userId") Long userId);
 	 
 }

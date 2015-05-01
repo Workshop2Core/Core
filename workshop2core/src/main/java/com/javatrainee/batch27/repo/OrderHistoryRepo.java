@@ -18,13 +18,13 @@ public interface OrderHistoryRepo extends JpaRepository<OrderHistory, Long> {
 		 		+ "AND price=:price AND idsaham=:idSaham "
 		 		+ "AND lot=:lot" ,nativeQuery = true)
 	OrderHistory findMatching(@Param("price") BigDecimal price, 
-				 @Param("idSaham") long idSaham, @Param("lot") BigDecimal lot);
-	
+				 @Param("idSaham") long idSaham, @Param("lot") BigDecimal lot);	
 
 	@Query(value = "SELECT * FROM order_history "
-		 		+ "WHERE status='Open' AND jenistransaksi='Buy'",
+		 		+ "WHERE status='Open' AND jenistransaksi='Buy' "
+		 		+ "ORDER BY dateorder ASC",
 		 		nativeQuery = true)
-	List<OrderHistory> listStatusOpen();
+	List<OrderHistory> listStatusOpenBuy();
 	
 	 @Query(value = "SELECT SUM(lot) AS lot_buy, price AS price_buy "
 		 		+ "FROM order_history WHERE status = 'Open' AND idsaham=:idSaham "

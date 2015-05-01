@@ -1,5 +1,7 @@
 package com.javatrainee.batch27.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -13,7 +15,7 @@ public class LoginHistoryServiceImpl implements LoginHistoryService {
 	private LoginHistoryRepo loginHistoryRepo;
 	
 	@Override
-	public Long findLoginHistoryByIdUser(Long idUser) {
+	public List<LoginHistory> findLoginHistoryByIdUser(Long idUser) {
 		// TODO Auto-generated method stub
 		return loginHistoryRepo.findLoginHistoryByIdUser(idUser);
 	}

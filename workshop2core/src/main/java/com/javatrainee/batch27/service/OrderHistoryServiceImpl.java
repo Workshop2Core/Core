@@ -42,9 +42,9 @@ public class OrderHistoryServiceImpl implements OrderHistoryService {
 	}
 	
 	@Override
-	public List<OrderHistory> listStatusOpen()
+	public List<OrderHistory> listStatusOpenBuy()
 	{
-		return orderHistoryRepo.listStatusOpen();
+		return orderHistoryRepo.listStatusOpenBuy();
 	}
 	
 	@Override
@@ -63,7 +63,8 @@ public class OrderHistoryServiceImpl implements OrderHistoryService {
 		orderHistoryRepo.save(orderHistoryUpdate);
 	}
 
-	private List<FloorPojo> getDataFloor(int sizeData, int sizeBuy, int sizeSell, List<Object> listBuy,List<Object> listSell){
+	private List<FloorPojo> getDataFloor(int sizeData, int sizeBuy, int sizeSell, 
+			List<Object> listBuy,List<Object> listSell){
 
 		List<FloorPojo> listFloor = new ArrayList<FloorPojo>();
 		for (int i = 0; i<sizeData; i++) {
