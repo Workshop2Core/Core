@@ -28,8 +28,8 @@ public class UserController {
 	    return new ResponseEntity<List<User>>(entity, HttpStatus.OK);
 	}
 	
-	@RequestMapping(value="/findById/{id}",method=RequestMethod.GET)
-	public ResponseEntity<User> findById(@PathVariable("id") long idUser) {
+	@RequestMapping(value="/findById/{idUser}",method=RequestMethod.GET)
+	public ResponseEntity<User> findById(@PathVariable("idUser") long idUser) {
 		User user = userService.findById(idUser);	 
 	    return new ResponseEntity<User>(user, HttpStatus.OK);
 	}
@@ -46,17 +46,17 @@ public class UserController {
 		return new ResponseEntity<User>(HttpStatus.NO_CONTENT);
 	}
 	
-	@RequestMapping(value="/update/{id}",method=RequestMethod.POST)
+	@RequestMapping(value="/update/{idUser}",method=RequestMethod.PUT)
 	public ResponseEntity<User> updateUser(
-			@PathVariable("id") long idUser,
+			@PathVariable("idUser") long idUser,
 			@RequestBody @Valid User user){
 		
 		userService.update(idUser, user);		
 		return new ResponseEntity<User>(HttpStatus.NO_CONTENT);
 	}
 	
-	@RequestMapping(value="/delete/{id}",method=RequestMethod.DELETE)
-	public ResponseEntity<User> deleteUser(@PathVariable("id") long idUser){
+	@RequestMapping(value="/delete/{idUser}",method=RequestMethod.DELETE)
+	public ResponseEntity<User> deleteUser(@PathVariable("idUser") long idUser){
 		userService.delete(idUser);
 		return new ResponseEntity<User>(HttpStatus.NO_CONTENT);
 	}

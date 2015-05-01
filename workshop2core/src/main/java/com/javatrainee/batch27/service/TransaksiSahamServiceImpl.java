@@ -24,12 +24,12 @@ public class TransaksiSahamServiceImpl implements TransaksiSahamService{
 		return transaksiSahamRepo.findOne(idTransaksi);
 	}
 	
-	public void insertTransaksiSaham(TransaksiSaham transaksiSaham)
+	public void insert(TransaksiSaham transaksiSaham)
 	{
 		transaksiSahamRepo.save(transaksiSaham);
 	}
 	
-	public void updateTransaksiSaham(long idTransaksi, TransaksiSaham transaksiSaham)
+	public void update(long idTransaksi, TransaksiSaham transaksiSaham)
 	{
 		TransaksiSaham transaksiUpdate = transaksiSahamRepo.findOne(idTransaksi);
 		transaksiUpdate.setUser(transaksiSaham.getUser());
@@ -38,9 +38,10 @@ public class TransaksiSahamServiceImpl implements TransaksiSahamService{
 		
 		transaksiSahamRepo.save(transaksiUpdate);
 	}
-	
-	public void deleteTransaksiSaham(long idTransaksi)
-	{
-		transaksiSahamRepo.delete(idTransaksi);
+
+	@Override
+	public List<TransaksiSaham> findDataSahamByUserId(long userId) {
+		// TODO Auto-generated method stub
+		return transaksiSahamRepo.findDataSahamByUserId(userId);
 	}
 }

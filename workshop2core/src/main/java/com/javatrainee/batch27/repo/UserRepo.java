@@ -11,7 +11,7 @@ import com.javatrainee.batch27.entity.User;
 public interface UserRepo extends JpaRepository<User, Long>   {
 	
 	 @Query(value = "SELECT a.* FROM users a "
-		 		+ "WHERE a.username = :username AND a.password = :password" ,nativeQuery = true)
+		 		+ "WHERE a.username=:username AND a.password = :password" ,nativeQuery = true)
 		 User findUserByUsernameAndPassword(@Param("username") String username, 
 				 @Param("password") String password);
 	 	 

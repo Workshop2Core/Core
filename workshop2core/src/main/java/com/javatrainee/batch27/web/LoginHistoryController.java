@@ -21,21 +21,15 @@ public class LoginHistoryController {
 	@Autowired
 	private LoginHistoryService loginHistoryService;
 	
-	@RequestMapping(value="/findLoginHistoryByIdUser/{userid}",method=RequestMethod.GET)
-	public ResponseEntity<LoginHistory> findLoginHistoryByIdUser(@PathVariable("userid") long userid) {
-		LoginHistory loginHistory = loginHistoryService.findLoginHistoryByIdUser(userid);	 
-	    return new ResponseEntity<LoginHistory>(loginHistory, HttpStatus.OK);
-	}
-	
 	@RequestMapping(value="/insert",method=RequestMethod.POST)
 	public ResponseEntity<LoginHistory> insertLoginHistory(@RequestBody @Valid LoginHistory loginHistory){
 		loginHistoryService.insert(loginHistory);
 		return new ResponseEntity<LoginHistory>(HttpStatus.NO_CONTENT);
 	}
 	
-	@RequestMapping(value="/delete/{id}",method=RequestMethod.DELETE)
-	public ResponseEntity<LoginHistory> deleteLoginHistory(@PathVariable("id") long idLogin){
-		loginHistoryService.delete(idLogin);
+	@RequestMapping(value="/delete/{userId}",method=RequestMethod.DELETE)
+	public ResponseEntity<LoginHistory> deleteLoginHistory(@PathVariable("userId") long userId){
+		loginHistoryService.delete(loginHistoryService.findLoginHistoryByIdUser(userId));
 		return new ResponseEntity<LoginHistory>(HttpStatus.NO_CONTENT);
 	}
 	

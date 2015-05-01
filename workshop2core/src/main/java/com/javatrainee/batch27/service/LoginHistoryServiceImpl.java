@@ -13,7 +13,7 @@ public class LoginHistoryServiceImpl implements LoginHistoryService {
 	private LoginHistoryRepo loginHistoryRepo;
 	
 	@Override
-	public LoginHistory findLoginHistoryByIdUser(long idUser) {
+	public Long findLoginHistoryByIdUser(Long idUser) {
 		// TODO Auto-generated method stub
 		return loginHistoryRepo.findLoginHistoryByIdUser(idUser);
 	}

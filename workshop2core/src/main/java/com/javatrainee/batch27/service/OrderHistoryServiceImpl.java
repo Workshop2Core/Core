@@ -21,9 +21,9 @@ public class OrderHistoryServiceImpl implements OrderHistoryService {
 	}
 
 	@Override
-	public OrderHistory findById(long idUser) {
+	public OrderHistory findOrderHistoryByOrderId(long orderId) {
 		// TODO Auto-generated method stub
-		return orderHistoryRepo.findOne(idUser);
+		return orderHistoryRepo.findOne(orderId);
 	}
 
 	@Override
@@ -32,18 +32,6 @@ public class OrderHistoryServiceImpl implements OrderHistoryService {
 		orderHistoryRepo.save(orderHistory);
 	}
 
-	@Override
-	public void update(long idOrder, OrderHistory orderHistory) {
-		// TODO Auto-generated method stub		
-		OrderHistory o = orderHistoryRepo.findOne(idOrder);
-		orderHistory.setIdorder(idOrder);
-		orderHistoryRepo.save(o);
-	}
 
-	@Override
-	public void delete(long idOrder) {
-		// TODO Auto-generated method stub
-		orderHistoryRepo.delete(idOrder);
-	}
 
 }

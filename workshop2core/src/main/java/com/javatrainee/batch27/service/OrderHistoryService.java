@@ -5,10 +5,10 @@ import java.util.List;
 import com.javatrainee.batch27.entity.OrderHistory;
 
 public interface OrderHistoryService {
-	public List<OrderHistory> findAll();
-	public OrderHistory findById(long idOrder);
-	public void insert(OrderHistory orderHistory);
-	public void update(long idOrder, OrderHistory orderHistory);
-	public void delete(long idOrder);
+	
+	//path : workshop2/orderHistory
+	public List<OrderHistory> findAll();							//-->getAll
+	public OrderHistory findOrderHistoryByOrderId(long orderId);	//-->getOrderHistoryByOrderId/{orderId}
+	public void insert(OrderHistory orderHistory);					//-->insert
 	
 }

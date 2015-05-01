@@ -5,10 +5,11 @@ import java.util.List;
 import com.javatrainee.batch27.entity.TransaksiSaham;
 
 public interface TransaksiSahamService {
-	public List<TransaksiSaham> findAll();
-	public TransaksiSaham findById(long idTransaksi);
-	public void insertTransaksiSaham(TransaksiSaham transaksiSaham);
-	public void updateTransaksiSaham(long idTransaksi, TransaksiSaham transaksiSaham);
-	public void deleteTransaksiSaham(long idTransaksi);
+	
+	//Path : workshop2/dataSaham
+	public List<TransaksiSaham> findAll();								//--> getAllDataSaham
+	public List<TransaksiSaham> findDataSahamByUserId(long userId); 	//--> getDataSahamByUserId/{userId}
+	public void insert(TransaksiSaham transaksiSaham);					//--> /insert
+	public void update(long idTransaksi, TransaksiSaham transaksiSaham);//--> /update/{idDataSaham}
 	
 }
